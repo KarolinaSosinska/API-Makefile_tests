@@ -4,7 +4,7 @@ PIP = $(VENV)/bin/pip
 UNITTEST = $(VENV)/bin/unittest
 
 $(VENV)/bin/activate: requirements.txt
-	python3 -m venv $(VENV)
+	python -m venv $(VENV)
 	$(PIP) install --upgrade pip
 	$(PIP) install -r requirements.txt
 
