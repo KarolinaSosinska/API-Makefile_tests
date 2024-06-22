@@ -1,17 +1,17 @@
 VENV = venv
-PYTHON = $(VENV)/bin/python
-PIP = $(VENV)/bin/pip
-UNITTEST = $(VENV)/bin/unittest
+PYTHON = $(VENV)/Scripts/python.exe
+PIP = $(VENV)/Scripts/pip.exe
+UNITTEST = $(PYTHON) -m unittest
 
 $(VENV)/bin/activate: requirements.txt
 	python -m venv $(VENV)
 	$(PIP) install --upgrade pip
 	$(PIP) install -r requirements.txt
 
-install: $(VENV)/bin/activate
+install: $(VENV)/Scripts/activate
 
-test: $(VENV)/bin/activate
+test: install
 	$(UNITTEST)
 
-run: $(VEN)/bin/activate
+run: install
 	$(PYTHON) app.py
